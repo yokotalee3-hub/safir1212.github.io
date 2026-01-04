@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Загрузка документов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    button {
+      background: #2563eb;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 28px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    input {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="uploadBtn">Загрузить документы</button>
+  <input type="file" id="fileInput" />
+
+  <script src="app.js"></script>
+</body>
+</html>
