@@ -1,34 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Загрузка документов</title>
+  <meta charset="UTF-8" />
+  <title>Документы</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
       background: #0f172a;
-      color: #fff;
+      color: #e5e7eb;
+      font-family: system-ui, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .doc {
+      background: #020617;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+    }
+
+    .doc-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .doc-status {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .doc-status.ok {
+      color: #22c55e;
     }
 
     button {
       background: #2563eb;
       border: none;
-      border-radius: 16px;
-      padding: 18px 28px;
-      font-size: 18px;
+      border-radius: 10px;
+      padding: 10px 14px;
       color: white;
       cursor: pointer;
+      font-size: 14px;
     }
 
-    button:active {
-      transform: scale(0.98);
+    button:disabled {
+      background: #334155;
+      cursor: default;
     }
 
     input {
@@ -38,9 +72,35 @@
 </head>
 <body>
 
-  <button id="uploadBtn">Загрузить документы</button>
-  <input type="file" id="fileInput" />
+<h1>Загрузка документов</h1>
 
-  <script src="app.js"></script>
+<div class="doc" data-type="invoice">
+  <div class="doc-info">
+    <div class="doc-title">Инвойс</div>
+    <div class="doc-status">Не загружен</div>
+  </div>
+  <button>Загрузить</button>
+  <input type="file" />
+</div>
+
+<div class="doc" data-type="medical">
+  <div class="doc-info">
+    <div class="doc-title">Медицинский рапорт</div>
+    <div class="doc-status">Не загружен</div>
+  </div>
+  <button>Загрузить</button>
+  <input type="file" />
+</div>
+
+<div class="doc" data-type="receipt">
+  <div class="doc-info">
+    <div class="doc-title">Чек об оплате</div>
+    <div class="doc-status">Не загружен</div>
+  </div>
+  <button>Загрузить</button>
+  <input type="file" />
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
