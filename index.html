@@ -2,67 +2,116 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Документы</title>
+  <title>Safir</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
     body {
       margin: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+      background: #f8fafc;
       font-family: system-ui, sans-serif;
-      padding: 20px;
+      color: #0f172a;
+      padding: 16px;
     }
 
-    h1 {
-      font-size: 22px;
+    header {
+      text-align: center;
       margin-bottom: 20px;
     }
 
-    .doc {
-      background: #020617;
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+      color: #2563eb;
+    }
+
+    header p {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 8px;
+    }
+
+    .card {
+      background: white;
       border-radius: 14px;
-      padding: 16px;
+      padding: 14px;
       margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
-    .doc-info {
+    .info {
       display: flex;
       flex-direction: column;
     }
 
-    .doc-title {
-      font-size: 16px;
+    .title {
+      font-size: 15px;
       font-weight: 500;
     }
 
-    .doc-status {
+    .desc {
       font-size: 13px;
-      color: #94a3b8;
+      color: #64748b;
       margin-top: 4px;
     }
 
-    .doc-status.ok {
-      color: #22c55e;
+    .status {
+      font-size: 13px;
+      margin-top: 6px;
+      color: #94a3b8;
+    }
+
+    .status.ok {
+      color: #16a34a;
     }
 
     button {
-      background: #2563eb;
       border: none;
       border-radius: 10px;
       padding: 10px 14px;
-      color: white;
-      cursor: pointer;
       font-size: 14px;
+      cursor: pointer;
     }
 
-    button:disabled {
-      background: #334155;
-      cursor: default;
+    .upload {
+      background: #2563eb;
+      color: white;
+    }
+
+    .replace {
+      background: #16a34a;
+      color: white;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .progress {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 14px;
+      background: #cbd5e1;
+      color: #475569;
+      cursor: not-allowed;
+    }
+
+    .submit.active {
+      background: #16a34a;
+      color: white;
+      cursor: pointer;
     }
 
     input {
@@ -72,33 +121,47 @@
 </head>
 <body>
 
-<h1>Загрузка документов</h1>
+<header>
+  <h1>Safir</h1>
+  <p>
+    Загрузите документы из больницы.  
+    Если чего-то нет сейчас, можно вернуться позже.
+  </p>
+</header>
 
-<div class="doc" data-type="invoice">
-  <div class="doc-info">
-    <div class="doc-title">Инвойс</div>
-    <div class="doc-status">Не загружен</div>
+<div class="card" data-type="invoice">
+  <div class="info">
+    <div class="title">Инвойс</div>
+    <div class="desc">Счёт за лечение из больницы</div>
+    <div class="status">Не загружен</div>
   </div>
-  <button>Загрузить</button>
+  <button class="upload">Загрузить</button>
   <input type="file" />
 </div>
 
-<div class="doc" data-type="medical">
-  <div class="doc-info">
-    <div class="doc-title">Медицинский рапорт</div>
-    <div class="doc-status">Не загружен</div>
+<div class="card" data-type="medical">
+  <div class="info">
+    <div class="title">Медицинский рапорт</div>
+    <div class="desc">Заключение врача или выписка</div>
+    <div class="status">Не загружен</div>
   </div>
-  <button>Загрузить</button>
+  <button class="upload">Загрузить</button>
   <input type="file" />
 </div>
 
-<div class="doc" data-type="receipt">
-  <div class="doc-info">
-    <div class="doc-title">Чек об оплате</div>
-    <div class="doc-status">Не загружен</div>
+<div class="card" data-type="receipt">
+  <div class="info">
+    <div class="title">Чек об оплате</div>
+    <div class="desc">Подтверждение оплаты лечения</div>
+    <div class="status">Не загружен</div>
   </div>
-  <button>Загрузить</button>
+  <button class="upload">Загрузить</button>
   <input type="file" />
+</div>
+
+<div class="footer">
+  <div class="progress">0 из 3 документов загружено</div>
+  <button class="submit">Отправить заявку</button>
 </div>
 
 <script src="app.js"></script>
