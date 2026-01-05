@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f7f7f7;
+  color: #111;
+}
+
+.container {
+  padding: 24px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: none;
+  background: #0f62fe;
+  color: white;
+  cursor: pointer;
+}
+
+.main-btn.secondary {
+  background: #ffffff;
+  color: #0f62fe;
+  border: 1px solid #0f62fe;
+}
+
+.contact-card {
+  display: block;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.contact-card span {
+  display: block;
+  color: #666;
+  font-size: 14px;
+}
+
+.doc {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.status {
+  display: block;
+  margin-top: 6px;
+  color: #999;
+  font-size: 13px;
+}
+
+.back-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  background: #eee;
+  border: none;
+  border-radius: 12px;
+}
