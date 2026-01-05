@@ -1,66 +1,20 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-const cards = document.querySelectorAll('.card');
-const progressText = document.querySelector('.progress');
-const submitBtn = document.querySelector('.submit');
-
-const state = {
-  invoice: null,
-  medical: null,
-  receipt: null
-};
-
-function updateProgress() {
-  const uploaded = Object.values(state).filter(Boolean).length;
-  progressText.textContent = `${uploaded} из 3 документов загружено`;
-
-  if (uploaded === 3) {
-    submitBtn.classList.add('active');
-    submitBtn.disabled = false;
-  }
+function goHelp() {
+  window.location.href = "help.html";
 }
 
-cards.forEach(card => {
-  const type = card.dataset.type;
-  const button = card.querySelector('button');
-  const input = card.querySelector('input');
-  const status = card.querySelector('.status');
+function goUpload() {
+  window.location.href = "upload.html";
+}
 
-  button.addEventListener('click', () => {
-    input.click();
-  });
+function goBack() {
+  window.history.back();
+}
 
-  input.addEventListener('change', () => {
-    if (!input.files.length) return;
-
-    const file = input.files[0];
-    state[type] = file.name;
-
-    status.textContent = `Загружен: ${file.name}`;
-    status.classList.add('ok');
-
-    button.textContent = 'Заменить';
-    button.classList.remove('upload');
-    button.classList.add('replace');
-
-    updateProgress();
-
-    tg.sendData(JSON.stringify({
-      action: 'document_uploaded',
-      docType: type,
-      fileName: file.name
-    }));
-  });
-});
-
-submitBtn.addEventListener('click', () => {
-  if (!submitBtn.classList.contains('active')) return;
-
-  tg.sendData(JSON.stringify({
-    action: 'submit_application',
-    documents: state
-  }));
-
-  tg.showAlert('Заявка отправлена. Мы свяжемся с вами.');
-});
+function markDone(input) {
+  const status = input.parentElement.querySelector('.status');
+  status.textContent = "загружен";
+  status.style.color = "green";
+}
